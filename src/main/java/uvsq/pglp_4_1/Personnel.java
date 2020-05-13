@@ -1,8 +1,14 @@
 package uvsq.pglp_4_1;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public final class Personnel implements GroupePersonnels {
+public final class Personnel implements GroupePersonnels,Serializable {
 	
 	private  String Nom;
 	private  String Prenom;
@@ -23,6 +29,53 @@ public final class Personnel implements GroupePersonnels {
 	{
 		return this.Tel;
 	}
+	
+	public void serialise(String fileDest)
+	{
+		 ObjectOutputStream oos = null;
+
+		    try {
+		      final FileOutputStream fichier = new FileOutputStream(fileDest);
+		      oos = new ObjectOutputStream(fichier);
+		      oos.writeObject(this);
+		      oos.flush();
+		    } catch (final java.io.IOException e) {
+		      e.printStackTrace();
+		    } finally {
+		      try {
+		        if (oos != null) {
+		          oos.flush();
+		          oos.close();
+		        }
+		      } catch (final IOException ex) {
+		        ex.printStackTrace();
+		      }
+		    }
+		  }
+	
+	public static Personnel deserialise(String Fsource)
+	{
+		Personnel e=null;
+		try {
+	         FileInputStream fileIn = new FileInputStream(Fsource);
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         e = (Personnel) in.readObject();
+	         in.close();
+	         fileIn.close();
+	         return e;
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	         return null;
+	      } catch (ClassNotFoundException c) {
+	         c.printStackTrace();
+	         return null;
+	      }
+	    
+	}
+		
+	
+	
+	
 	public static class Builder {
 		
 		private final String Nom;
