@@ -30,6 +30,23 @@ public final class Personnel implements GroupePersonnels,Serializable {
 		return this.Tel;
 	}
 	
+	public String GetNom()
+	{
+		return this.Nom;
+	}
+	
+	public String GetPrenom()
+	{
+		return this.Prenom;
+	}
+	
+	public String GetDate()
+	{
+		return this.Date.toString();
+	}
+	
+	
+	
 	public void serialise(String fileDest)
 	{
 		 ObjectOutputStream oos = null;
