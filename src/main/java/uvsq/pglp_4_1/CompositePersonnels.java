@@ -77,6 +77,11 @@ public class CompositePersonnels implements GroupePersonnels,Serializable {
 		personnes.remove(groupe);
 	}
 	
+	public ArrayList<GroupePersonnels> GetList()
+	{
+		return this.personnes;
+	}
+ 	
 	
 	public void print() {
 		for (GroupePersonnels groupePersonnels : personnes)
