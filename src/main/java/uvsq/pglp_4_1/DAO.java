@@ -9,9 +9,9 @@ public interface DAO<T> {
 	 *  - Update
 	 *  - Delete
 	 */
-	T create(T obj);
-	T read(String id);
-	T update(T obj);
-	void delete(T obj);
+	public boolean create(T obj);
+	public boolean read(String id);
+	public boolean update(T obj);
+	public boolean delete(T obj);
 
 }

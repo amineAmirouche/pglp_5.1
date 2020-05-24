@@ -43,7 +43,7 @@ public class App
     	/**
     	 * desérialisation du groupe et du personnel
     	 */
-    	//Personnel.deserialise("./serialisationPersonnel1.txt").print();;
+    	//Personnel.deserialise("./serialisationPersonnel1.txt").print();
     	CompositePersonnels.deserialise("./serialisationGroupe2.txt").print();
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class CompositePersonnels implements GroupePersonnels,Serializable {
 
 	
-	
+	String path;
 	ArrayList<GroupePersonnels> personnes; 
 	//int IdGroupe;
 	
@@ -36,6 +36,7 @@ public class CompositePersonnels implements GroupePersonnels,Serializable {
 		      }
 		      oos = new ObjectOutputStream(fichier);
 		      oos.writeObject(this);
+		      this.path=Dest;
 		      
 		      oos.flush();
 		    } catch (final java.io.IOException e) {
